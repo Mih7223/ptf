@@ -1,0 +1,18 @@
+
+
+{% if user.is_authenticated %}
+connecté en tant que {{ user.username }}
+
+<form class="" action="{% url 'deconnecxion' %}" method="POST">
+  {% csrf_token %}
+  <button type="submit" name="button">Se déconnecté</button>
+</form>
+{% else %}
+ <a href="{% url 'inscription' %}">S'inscrire</a>
+ <a href="{% url 'connecxion' %}">Se connecter</a>
+{% endif %}
+<br>
+<br>
+<br>
+
+ {% block content %}{% endblock %}

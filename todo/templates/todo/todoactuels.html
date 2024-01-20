@@ -1,0 +1,24 @@
+
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+    les taches actuels
+
+<ul>
+    {% for todo in todos %}
+    <li>
+        <a href="{% url 'consultation' todo.id %}">
+        {% if todo.important %}<b>
+        {% endif %}
+        {{ todo.titre }}
+        {% if todo.important %}</b>
+        {% endif %}
+        {% if todo.note %}-{{ todo.note }}
+        {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
